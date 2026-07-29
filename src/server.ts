@@ -71,13 +71,14 @@ if (process.env.NODE_ENV !== 'test') {
     .connect(MONGODB_URI)
     .then(() => {
       logger.info('Connected to MongoDB');
-      app.listen(PORT, () => {
-        logger.info(`Server running on port ${PORT}`);
-      });
     })
     .catch((err) => {
       logger.error('Database connection error:', err);
     });
+
+  app.listen(PORT, () => {
+    logger.info(`Server running on port ${PORT}`);
+  });
 }
 
 export default app;
